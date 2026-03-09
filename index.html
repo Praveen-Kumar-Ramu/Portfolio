@@ -1,733 +1,856 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Praveen Kumar Ramu — Marketing & Analytics Professional</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <head>
-        <meta charset="utf-8">
-        <title>Pigra - Personal Portfolio Website Template</title>
-        <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <meta content="" name="keywords">
-        <meta content="" name="description">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-        <!-- Google Web Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Edu+TAS+Beginner:wght@400..700&family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
 
-        <!-- Icon Font Stylesheet -->
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        :root {
+            --dark: #0f1117;
+            --dark2: #181c26;
+            --accent: #c8a96e;
+            --accent2: #e8c98e;
+            --light: #f5f3ef;
+            --muted: #8a8f9e;
+            --white: #ffffff;
+            --border: rgba(200,169,110,0.2);
+        }
 
-        <!-- Libraries Stylesheet -->
-        <link rel="stylesheet" href="lib/animate/animate.min.css"/>
-        <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
-        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
+        html { scroll-behavior: smooth; }
 
-        <!-- Customized Bootstrap Stylesheet -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
 
-        <!-- Template Stylesheet -->
-        <link href="css/style.css" rel="stylesheet">
-    </head>
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+        }
 
-    <body>
+        /* ── SIDEBAR NAV ── */
+        .sidebar {
+            position: fixed;
+            left: 0; top: 0;
+            width: 80px;
+            height: 100vh;
+            background: var(--dark);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+            z-index: 100;
+            border-right: 1px solid var(--border);
+        }
 
-        <!-- Spinner Start -->
-        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-                <span class="sr-only">Loading...</span>
+        .sidebar a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s, transform 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .sidebar a span {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 9px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .sidebar a:hover, .sidebar a.active {
+            color: var(--accent);
+            transform: scale(1.1);
+        }
+
+        /* ── MAIN WRAPPER ── */
+        .main {
+            margin-left: 80px;
+        }
+
+        /* ── SECTION LAYOUT ── */
+        .section {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+            border-bottom: 1px solid #e0dbd2;
+        }
+
+        .section-label {
+            background: var(--dark);
+            padding: 80px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+        }
+
+        .section-label .tag {
+            color: var(--accent);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .section-label h2 {
+            color: var(--white);
+            font-size: 2rem;
+            line-height: 1.3;
+        }
+
+        .section-body {
+            padding: 80px 64px;
+            background: var(--light);
+        }
+
+        /* ── HERO ── */
+        #home .section-label {
+            background: var(--dark);
+        }
+
+        .hero-name {
+            font-size: 3.2rem;
+            color: var(--white);
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+
+        .hero-title {
+            color: var(--accent);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 32px;
+        }
+
+        .hero-body {
+            padding: 80px 64px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 28px;
+        }
+
+        .hero-intro {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: #444;
+            max-width: 600px;
+        }
+
+        .contact-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .contact-list a, .contact-list p {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--dark);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .contact-list a:hover { color: var(--accent); }
+
+        .contact-list i {
+            color: var(--accent);
+            width: 18px;
+        }
+
+        .social-row {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-btn {
+            width: 40px; height: 40px;
+            background: var(--dark);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            text-decoration: none;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .social-btn:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--accent);
+            color: var(--dark);
+            padding: 12px 28px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent2);
+            transform: translateY(-2px);
+        }
+
+        /* ── ABOUT ── */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+
+        .info-row {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .info-item {
+            display: flex;
+            gap: 8px;
+            font-size: 0.88rem;
+            border-bottom: 1px solid #e5e0d8;
+            padding-bottom: 12px;
+        }
+
+        .info-item strong {
+            color: var(--dark);
+            font-weight: 600;
+            min-width: 100px;
+        }
+
+        .info-item span {
+            color: #555;
+        }
+
+        /* ── EDUCATION / EXPERIENCE ── */
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .timeline-item {
+            border-left: 2px solid var(--accent);
+            padding-left: 28px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -6px; top: 6px;
+            width: 10px; height: 10px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+
+        .timeline-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 6px;
+            flex-wrap: wrap;
+        }
+
+        .timeline-org {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px;
+            color: var(--muted);
+            letter-spacing: 1px;
+        }
+
+        .timeline-date {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 11px;
+            background: var(--accent);
+            color: var(--dark);
+            padding: 3px 10px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .timeline-title {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .timeline-desc {
+            font-size: 0.87rem;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .timeline-bullets {
+            list-style: none;
+            margin-top: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .timeline-bullets li {
+            font-size: 0.85rem;
+            color: #555;
+            line-height: 1.6;
+            padding-left: 16px;
+            position: relative;
+        }
+
+        .timeline-bullets li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-size: 10px;
+            top: 3px;
+        }
+
+        /* ── SKILLS ── */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 28px;
+        }
+
+        .skill-card {
+            background: var(--white);
+            border: 1px solid #e5e0d8;
+            padding: 28px 24px;
+            transition: border-color 0.3s, transform 0.3s;
+        }
+
+        .skill-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+        }
+
+        .skill-card-icon {
+            font-size: 22px;
+            color: var(--accent);
+            margin-bottom: 14px;
+        }
+
+        .skill-card h4 {
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+        }
+
+        .tag-pill {
+            background: var(--light);
+            border: 1px solid #ddd8ce;
+            font-size: 11px;
+            padding: 4px 10px;
+            color: #555;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        /* ── CONTACT ── */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+        }
+
+        .contact-info-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+
+        .contact-icon {
+            width: 48px; height: 48px;
+            background: var(--dark);
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .contact-info-card h4 {
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+        }
+
+        .contact-info-card p {
+            font-size: 0.87rem;
+            color: #555;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .form-field {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .form-field label {
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--muted);
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .form-field input,
+        .form-field textarea {
+            border: 1px solid #ddd8ce;
+            background: var(--white);
+            padding: 12px 14px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+            color: var(--dark);
+            outline: none;
+            transition: border-color 0.3s;
+            resize: none;
+        }
+
+        .form-field input:focus,
+        .form-field textarea:focus {
+            border-color: var(--accent);
+        }
+
+        /* ── FOOTER ── */
+        .footer {
+            background: var(--dark);
+            padding: 40px 64px 40px calc(64px + 80px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer p {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 10px;
+        }
+
+        /* ── ANIMATIONS ── */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 900px) {
+            .sidebar { display: none; }
+            .main { margin-left: 0; }
+            .section { grid-template-columns: 1fr; }
+            .section-label { position: relative; height: auto; padding: 48px 32px; }
+            .section-body { padding: 48px 32px; }
+            .hero-body { padding: 48px 32px; }
+            .about-grid, .contact-grid, .skills-grid { grid-template-columns: 1fr; }
+            .form-row { grid-template-columns: 1fr; }
+            .footer { padding: 32px; }
+            .hero-name { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar Nav -->
+    <nav class="sidebar">
+        <a href="#home" class="active"><i class="fas fa-home"></i><span>Home</span></a>
+        <a href="#about"><i class="far fa-address-card"></i><span>About</span></a>
+        <a href="#education"><i class="fas fa-graduation-cap"></i><span>Edu</span></a>
+        <a href="#experience"><i class="fas fa-briefcase"></i><span>Exp</span></a>
+        <a href="#skills"><i class="fas fa-tools"></i><span>Skills</span></a>
+        <a href="#contact"><i class="fas fa-envelope"></i><span>Contact</span></a>
+    </nav>
+
+    <div class="main">
+
+        <!-- ── HERO ── -->
+        <section class="section" id="home">
+            <div class="section-label" style="justify-content: flex-end; padding-bottom: 80px;">
+                <div class="tag">Portfolio</div>
+                <h1 class="hero-name">Praveen<br>Kumar<br>Ramu</h1>
+                <p class="hero-title">Marketing & Analytics</p>
             </div>
-        </div>
-        <!-- Spinner End -->
-
-
-        <!-- Navbar Start -->
-        <div class="container-fluid nav-section border-0">
-            <nav class="navbar navbar-light">
-                <div class="navbar-nav flex-column">
-                    <a href="#pigraHome" class="nav-item nav-link active"><span class="fa fa-home"></span> Home</a>
-                    <a href="#pigraAbout" class="nav-item nav-link"><span class="far fa-address-card"></span> About</a>
-                    <a href="#pigraService" class="nav-item nav-link"><span class="fab fa-servicestack"></span> Service</a>
-                    <a href="#pigraPortfolio" class="nav-item nav-link"><span class="fa fa-blog"></span> Portfolio</a>
-                    <a href="#pigraContact" class="nav-item nav-link"><span class="fas fa-address-book"></span> Contact</a>
+            <div class="hero-body">
+                <p class="hero-intro fade-up">
+                    Results-driven marketing professional with hands-on experience in digital marketing analytics, CRM management, and stakeholder engagement across international environments. Currently pursuing an MBA in Business Analytics at BITS Pilani, Dubai.
+                </p>
+                <div class="contact-list fade-up">
+                    <p><i class="fas fa-map-marker-alt"></i> Dubai, UAE</p>
+                    <a href="mailto:praveenkumarramu1969@gmail.com"><i class="fas fa-envelope"></i> praveenkumarramu1969@gmail.com</a>
+                    <a href="tel:+918148921398"><i class="fas fa-phone-alt"></i> +91 8148 921 398</a>
+                    <a href="https://linkedin.com/in/praveen-kumar-ramu" target="_blank"><i class="fab fa-linkedin"></i> linkedin.com/in/praveen-kumar-ramu</a>
                 </div>
-            </nav>
-        </div>
-        <!-- Navbar End -->
-
-        <!-- Header Start -->
-        <div class="container-fluid" id="pigraHome">
-            <div class="container">
-                <div class="row g-0">
-                    <div class="col-12 col-lg-3">
-                        <div class="header-content bg-dark h-100 pt-6 pe-6 pb-6">
-                            <a href="index.html" class="navbar-brand d-inline-flex pb-5 wow fadeInUp" data-wow-delay="0.1s">
-                                <h1 class="display-6 text-white mb-0">Pigra</h1>
-                            </a>
-                            <div class="text-start d-flex flex-column justify-content-center wow fadeInUp" data-wow-delay="0.3s">
-                                <p class="text-white sub-title">👋 Hello I'm Mezbah</p>
-                                <h1 class="display-6 text-white mb-0">Creative Designer Based in USA</h1>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-9">
-                        <div class="header-img d-flex h-100 pt-6 ps-6 pb-6">
-                            <div class="row g-5">
-                                <div class="col-xl-6 wow fadeInUp" data-wow-delay="0.1s">
-                                    <div class="bg-light p-4" style="border-radius: 68% 32% 100% 0% / 0% 75% 25% 100%;">
-                                        <img src="img/header-img.jpg" class="img-fluid w-100" style="border-radius: 68% 32% 100% 0% / 0% 75% 25% 100%;" alt="Image">
-                                    </div>
-                                </div>
-                                <div class="col-xl-6 wow fadeInUp" data-wow-delay="0.3s">
-                                    <h1 class="display-6 mb-4">Junior UI/UX Designer Developer</h1>
-                                    <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam sed animi et laboriosam facere tempora rerum, eligendi veritatis nesciunt cum?
-                                    </p>
-                                    <div class="d-flex align-items-center mb-2">
-                                        <i class="fas fa-map-marker-alt text-primary me-3"></i>
-                                        <p class="text-dark mb-0">123 Street New York.USA</p>
-                                    </div>
-                                    <div class="d-flex align-items-center mb-2">
-                                        <i class="fas fa-envelope text-primary me-3"></i>
-                                        <p class="text-dark mb-0">info@example.com</p>
-                                    </div>
-                                    <div class="d-flex align-items-center mb-2">
-                                        <i class="fa fa-phone-alt text-primary me-3"></i>
-                                        <p class="text-dark mb-0">(+012) 3456 7890</p>
-                                    </div>
-                                    <div class="d-flex align-items-center mb-4">
-                                        <i class="fab fa-firefox-browser text-primary me-3"></i>
-                                        <p class="text-dark mb-0">Yoursite@ex.com</p>
-                                    </div>
-                                    <div class="d-flex">
-                                        <a class="btn btn-primary btn-sm-square me-3" href="#"><i class="fab fa-facebook-f text-white"></i></a>
-                                        <a class="btn btn-primary btn-sm-square me-3" href="#"><i class="fab fa-twitter text-white"></i></a>
-                                        <a class="btn btn-primary btn-sm-square me-3" href="#"><i class="fab fa-instagram text-white"></i></a>
-                                        <a class="btn btn-primary btn-sm-square me-0" href="#"><i class="fab fa-linkedin-in text-white"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="social-row fade-up">
+                    <a class="social-btn" href="https://linkedin.com/in/praveen-kumar-ramu" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="social-btn" href="mailto:praveenkumarramu1969@gmail.com"><i class="fas fa-envelope"></i></a>
                 </div>
-            </div>
-        </div>
-        <!-- Header End -->
-
-
-        <!-- About Start -->
-        <div class="container-fluid" id="pigraAbout">
-            <div class="container">
-                <div class="row g-0">
-                    <div class="col-12 col-lg-3">
-                        <div class="about-header bg-dark h-100 pt-6 pe-6 pb-6">
-                            <div class="text-start d-flex flex-column justify-content-center wow fadeInUp" data-wow-delay="0.1s">
-                                <p class="text-white sub-title">About Me</p>
-                                <h1 class="display-6 text-white mb-0">UI Designer based in NYC, USA since 2025</h1>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-9">
-                        <div class="about-content h-100 pt-6 ps-6 pb-6">
-                            <div class="row g-5">
-                                <div class="col-xl-5">
-                                    <div class="about-img bg-light p-4 wow fadeInUp" data-wow-delay="0.1s">
-                                        <img src="img/about.jpg" class="img-fluid w-100" alt="Image">
-                                        <div class="sosial-icon">
-                                            <a class="btn btn-primary btn-sm-square mb-3" href="#"><i class="fab fa-facebook-f text-white"></i></a>
-                                            <a class="btn btn-primary btn-sm-square mb-3" href="#"><i class="fab fa-twitter text-white"></i></a>
-                                            <a class="btn btn-primary btn-sm-square mb-3" href="#"><i class="fab fa-instagram text-white"></i></a>
-                                            <a class="btn btn-primary btn-sm-square mb-0" href="#"><i class="fab fa-linkedin-in text-white"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-7 wow fadeInUp" data-wow-delay="0.3s">
-                                    <h4 class="mb-4">Hello, I'm Mezbah, Based in USA</h4>
-                                    <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam repellat, sint magni incidunt voluptatum eveniet numquam vel facilis sit similique a mollitia et dolorum aperiam repellendus ipsum, quidem nemo eligendi!
-                                    </p>
-                                    <div class="row g-4 mb-4">
-                                        <div class="col-6">
-                                            <p><strong class="fw-bold text-dark">Phone :</strong> + 113-804-9098</p>
-                                            <p><strong class="fw-bold text-dark">skype :</strong> mezbah.wallas</p>
-                                            <p class="mb-0"><strong class="fw-bold text-dark">Address :</strong> 123 Street New York</p>
-                                        </div>
-                                        <div class="col-6">
-                                            <p><strong class="fw-bold text-dark">Nationality :</strong> New York, USA</p>
-                                            <p><strong class="fw-bold text-dark">Email :</strong> contact@mezbah.com</p>
-                                            <p class="mb-0"><strong class="fw-bold text-dark">Freelancer :</strong> Available</p>
-                                        </div>
-                                    </div>
-                                    <a href="https://htmlcodex.com/downloading/?item=3433" class="btn btn-primary py-2 px-4"> <i class="fas fa-download me-2"></i>Buy Pro Version</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- About End -->
-
-
-        <!-- Education Start -->
-        <div class="container-fluid">
-            <div class="container">
-                <div class="row g-0">
-                    <div class="col-lg-3">
-                        <div class="education-header bg-dark h-100 pt-6 pe-6 pb-6">
-                            <div class="text-start d-flex flex-column justify-content-center wow fadeInUp" data-wow-delay="0.1s">
-                                <p class="text-white sub-title">Education</p>
-                                <h1 class="display-6 text-white mb-0">My education qualification</h1>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-9">
-                        <div class="education-content h-100 pt-6 ps-6 pb-6">
-                            <div class="row g-4">
-                                <div class="col-12">
-                                    <div class="education-item rounded p-4 h-100 wow fadeInUp" data-wow-delay="0.1s">
-                                        <div class="d-flex align-items-center mb-3">
-                                            <p class="fs-5 mb-0 me-4">National University</p>
-                                            <div>
-                                                <span class="fa fa-calendar me-1"></span> 2017 - 2019
-                                            </div>
-                                        </div>
-                                        <h4 class="mb-3">Diploma in Computer</h4>
-                                        <p class="mb-0">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti, a quasi velit sint atque non saepe quaerat ducimus, nobis error cupiditate, nisi repudiandae dignissimos magnam? Dicta ab possimus tempora nobis.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="education-item rounded p-4 h-100 wow fadeInUp" data-wow-delay="0.3s">
-                                        <div class="d-flex align-items-center mb-3">
-                                            <p class="fs-5 mb-0 me-4">Webster College</p>
-                                            <div>
-                                                <span class="fa fa-calendar me-1"></span> 2017 - 2019
-                                            </div>
-                                        </div>
-                                        <h4 class="mb-3">UI/UX Design</h4>
-                                        <p class="mb-0">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti, a quasi velit sint atque non saepe quaerat ducimus, nobis error cupiditate, nisi repudiandae dignissimos magnam? Dicta ab possimus tempora nobis.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="education-item rounded p-4 h-100 wow fadeInUp" data-wow-delay="0.5s">
-                                        <div class="d-flex align-items-center mb-3">
-                                            <p class="fs-5 mb-0 me-4">Oxford University</p>
-                                            <div>
-                                                <span class="fa fa-calendar me-1"></span> 2017 - 2019
-                                            </div>
-                                        </div>
-                                        <h4 class="mb-3">Java Development</h4>
-                                        <p class="mb-0">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti, a quasi velit sint atque non saepe quaerat ducimus, nobis error cupiditate, nisi repudiandae dignissimos magnam? Dicta ab possimus tempora nobis.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Education End -->
-
-        <!-- Experience Start -->
-        <div class="container-fluid">
-            <div class="container">
-                <div class="row g-0">
-                    <div class="col-lg-3">
-                        <div class="experience-header bg-dark h-100 pt-6 pe-6 pb-6">
-                            <div class="text-start d-flex flex-column justify-content-center wow fadeInUp" data-wow-delay="0.1s">
-                                <p class="text-white sub-title">Experience</p>
-                                <h1 class="display-6 text-white mb-0">My real work experience</h1>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-9">
-                        <div class="experience-content h-100 pt-6 ps-6 pb-6">
-                            <div class="row g-4">
-                                <div class="col-12">
-                                    <div class="experience-item rounded p-4 h-100 wow fadeInUp" data-wow-delay="0.1s">
-                                        <div class="d-flex align-items-center mb-3">
-                                            <p class="fs-5 mb-0 me-4">Historian</p>
-                                            <div>
-                                                <span class="fa fa-calendar me-1"></span> 2017 - 2019
-                                            </div>
-                                        </div>
-                                        <h4 class="mb-3">Seinor UI/UX Desinger</h4>
-                                        <p class="mb-0">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti, a quasi velit sint atque non saepe quaerat ducimus, nobis error cupiditate, nisi repudiandae dignissimos magnam? Dicta ab possimus tempora nobis.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="experience-item rounded p-4 h-100 wow fadeInUp" data-wow-delay="0.3s">
-                                        <div class="d-flex align-items-center mb-3">
-                                            <p class="fs-5 mb-0 me-4">Historian</p>
-                                            <div>
-                                                <span class="fa fa-calendar me-1"></span> 2017 - 2019
-                                            </div>
-                                        </div>
-                                        <h4 class="mb-3">UI/UX Designer</h4>
-                                        <p class="mb-0">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti, a quasi velit sint atque non saepe quaerat ducimus, nobis error cupiditate, nisi repudiandae dignissimos magnam? Dicta ab possimus tempora nobis.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="experience-item rounded p-4 h-100 wow fadeInUp" data-wow-delay="0.5s">
-                                        <div class="d-flex align-items-center mb-3">
-                                            <p class="fs-5 mb-0 me-4">Historian</p>
-                                            <div>
-                                                <span class="fa fa-calendar me-1"></span> 2017 - 2019
-                                            </div>
-                                        </div>
-                                        <h4 class="mb-3">Junior Visual Designer</h4>
-                                        <p class="mb-0">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti, a quasi velit sint atque non saepe quaerat ducimus, nobis error cupiditate, nisi repudiandae dignissimos magnam? Dicta ab possimus tempora nobis.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Exparience End -->
-
-
-        <!-- Service Start -->
-        <div class="container-fluid" id="pigraService">
-            <div class="container">
-                <div class="row g-0">
-                    <div class="col-lg-3">
-                        <div class="service-header h-100 bg-dark pt-6 pe-6 pb-6">
-                            <div class="text-start d-flex flex-column justify-content-center wow fadeInUp" data-wow-delay="0.1s">
-                                <p class="text-white sub-title">My Services</p>
-                                <h1 class="display-6 text-white mb-0">What I do for you</h1>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-9">
-                        <div class="service-content h-100 pt-6 ps-6 pb-6">
-                            <div class="row g-4">
-                                <div class="col-12">
-                                    <div class="service-item p-4 wow fadeInUp" data-wow-delay="0.1s">
-                                        <div class="row g-4 align-items-center">
-                                            <div class="col-xl-2">
-                                                <i class="fas fa-bezier-curve fa-3x"></i>
-                                            </div>
-                                            <div class="col-xl-3">
-                                                <h4 class="mb-0">Creative Design</h4>
-                                            </div>
-                                            <div class="col-xl-4">
-                                                <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis laboriosam repudiandae
-                                                </p>
-                                            </div>
-                                            <div class="col-xl-3">
-                                                <p><i class="fa fa-check me-2"></i> UI/UX Design</p>
-                                                <p><i class="fa fa-check me-2"></i> Research</p>
-                                                <p class="mb-0"><i class="fa fa-check me-2"></i> Mobile App</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="service-item p-4 wow fadeInUp" data-wow-delay="0.3s">
-                                        <div class="row g-4 align-items-center">
-                                            <div class="col-xl-2">
-                                                <i class="fas fa-laptop-code fa-3x"></i>
-                                            </div>
-                                            <div class="col-xl-3">
-                                                <h4 class="mb-0">Web Developm</h4>
-                                            </div>
-                                            <div class="col-xl-4">
-                                                <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis laboriosam repudiandae
-                                                </p>
-                                            </div>
-                                            <div class="col-xl-3">
-                                                <p><i class="fa fa-check me-2"></i> UI/UX Design</p>
-                                                <p><i class="fa fa-check me-2"></i> Research</p>
-                                                <p class="mb-0"><i class="fa fa-check me-2"></i> Mobile App</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="service-item p-4 wow fadeInUp" data-wow-delay="0.5s">
-                                        <div class="row g-4 align-items-center">
-                                            <div class="col-xl-2">
-                                                <i class="fab fa-app-store fa-3x"></i>
-                                            </div>
-                                            <div class="col-xl-3">
-                                                <h4 class="mb-0">Mobile Application</h4>
-                                            </div>
-                                            <div class="col-xl-4">
-                                                <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis laboriosam repudiandae
-                                                </p>
-                                            </div>
-                                            <div class="col-xl-3">
-                                                <p><i class="fa fa-check me-2"></i> UI/UX Design</p>
-                                                <p><i class="fa fa-check me-2"></i> Research</p>
-                                                <p class="mb-0"><i class="fa fa-check me-2"></i> Mobile App</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Service End -->
-
-
-        <!-- Portfolio Start -->
-        <div class="container-fluid" id="pigraPortfolio">
-            <div class="container">
-                <div class="row g-0">
-                    <div class="col-lg-3">
-                        <div class="portfolio-header h-100 bg-dark pt-6 pe-6 pb-6">
-                            <div class="text-start d-flex flex-column justify-content-center wow fadeInUp" data-wow-delay="0.1s">
-                                <p class="text-white sub-title">Portfolio</p>
-                                <h1 class="display-6 text-white mb-0">My Recent Works</h1>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-9">
-                        <div class="portfolio-content h-100 pt-6 ps-6 pb-6">
-                            <div class="portfolio-item py-5 border-bottom wow fadeInUp" data-wow-delay="0.1s">
-                                <div class="row g-4 align-items-center">
-                                    <div class="col-xl-6">
-                                        <h4 class="text-body">Web Design</h4>
-                                        <h1 class="display-6 mb-0">Software Design for ABC Corporation</h1>
-                                    </div>
-                                    <div class="col-9 col-xl-4">
-                                        <div class="portfolio-img">
-                                            <div class="portfolio-img-inner">
-                                                <img src="img/Portfolio-1.jpg" class="img-fluid" alt="Image">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-3 col-xl-2">
-                                        <div class="view-img">
-                                            <a href="img/Portfolio-1.jpg" class="btn btn-primary btn-lg-square"  data-lightbox="Portfolio-1"><i class="fas fa-plus"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="portfolio-item py-5 border-bottom wow fadeInUp" data-wow-delay="0.3s">
-                                <div class="row g-4 align-items-center">
-                                    <div class="col-xl-6">
-                                        <h4 class="text-body">Web Development</h4>
-                                        <h1 class="display-6 mb-0">Website Development for ABC Corporation</h1>
-                                    </div>
-                                    <div class="col-9 col-xl-4">
-                                        <div class="portfolio-img">
-                                            <div class="portfolio-img-inner">
-                                                <img src="img/portfolio-2.jpg" class="img-fluid" alt="Image">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-3 col-xl-2">
-                                        <div class="view-img">
-                                            <a href="img/portfolio-2.jpg" class="btn btn-primary btn-lg-square"  data-lightbox="portfolio-2"><i class="fas fa-plus"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="portfolio-item py-5 wow fadeInUp" data-wow-delay="0.5s">
-                                <div class="row g-4 align-items-center">
-                                    <div class="col-xl-6">
-                                        <h4 class="text-body">Photography</h4>
-                                        <h1 class="display-6 mb-0">Security Analysis for ABC Corporation</h1>
-                                    </div>
-                                    <div class="col-9 col-xl-4">
-                                        <div class="portfolio-img">
-                                            <div class="portfolio-img-inner">
-                                                <img src="img/portfolio-3.jpg" class="img-fluid" alt="Image">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-3 col-xl-2">
-                                        <div class="view-img">
-                                            <a href="img/portfolio-3.jpg" class="btn btn-primary btn-lg-square"  data-lightbox="portfolio-3"><i class="fas fa-plus"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Portfolio End -->
-
-
-        <!-- Testimonial Start -->
-        <div class="container-fluid">
-            <div class="container">
-                <div class="row g-0">
-                    <div class="col-lg-3">
-                        <div class="testimonial-header h-100 bg-dark pt-6 pe-6 pb-6">
-                            <div class="text-start d-flex flex-column justify-content-center wow fadeInUp" data-wow-delay="0.1s">
-                                <p class="text-white sub-title">Testimonial</p>
-                                <h1 class="display-6 text-white mb-0">What People Say</h1>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-9">
-                        <div class="testimonial-content h-100 pt-6 ps-6 pb-6">
-                            <div class="testimonial-carousel owl-carousel bg-light wow fadeInUp" data-wow-delay="0.1s">
-                                <div class="testimonial-item" data-dot="<img class='img-fluid' src='img/testimonial-img-1.jpg' alt=''>">
-                                    <div class="row gy-4 gx-2 mb-4">
-                                        <div class="col-sm-6">
-                                            <div class="d-flex justify-content-sm-end">
-                                                <div class="testimonial-inner-img border border-primary border-3 me-4" style="width: 100px; height: 100px;">
-                                                    <img src="img/testimonial-img-1.jpg" class="img-fluid" style="object-fit: cover;" alt="">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div>
-                                                <h5 class="mb-2">John Abraham</h5>
-                                                <p class="mb-0">New York, USA</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="text-sm-center">
-                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores nemo facilis tempora esse explicabo sed! Dignissimos quia ullam pariatur blanditiis sed voluptatum. Totam aut quidem laudantium tempora. Minima, saepe earum!
-                                        </p>
-                                        <div class="d-flex justify-content-sm-center">
-                                            <i class="fas fa-star text-primary"></i>
-                                            <i class="fas fa-star text-primary"></i>
-                                            <i class="fas fa-star text-primary"></i>
-                                            <i class="fas fa-star text-primary"></i>
-                                            <i class="fas fa-star text-primary"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="testimonial-item" data-dot="<img class='img-fluid' src='img/testimonial-img-2.jpg' alt=''>">
-                                    <div class="row gy-4 gx-2 mb-4">
-                                        <div class="col-sm-6">
-                                            <div class="d-flex justify-content-sm-end">
-                                                <div class="testimonial-inner-img border border-primary border-3 me-4" style="width: 100px; height: 100px;">
-                                                    <img src="img/testimonial-img-2.jpg" class="img-fluid" style="object-fit: cover;" alt="">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div>
-                                                <h5 class="mb-2">John Abraham</h5>
-                                                <p class="mb-0">New York, USA</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="text-sm-center">
-                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores nemo facilis tempora esse explicabo sed! Dignissimos quia ullam pariatur blanditiis sed voluptatum. Totam aut quidem laudantium tempora. Minima, saepe earum!
-                                        </p>
-                                        <div class="d-flex justify-content-sm-center">
-                                            <i class="fas fa-star text-primary"></i>
-                                            <i class="fas fa-star text-primary"></i>
-                                            <i class="fas fa-star text-primary"></i>
-                                            <i class="fas fa-star text-primary"></i>
-                                            <i class="fas fa-star text-primary"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="testimonial-item" data-dot="<img class='img-fluid' src='img/testimonial-img-3.jpg' alt=''>">
-                                    <div class="row gy-4 gx-2 mb-4">
-                                        <div class="col-sm-6">
-                                            <div class="d-flex justify-content-sm-end">
-                                                <div class="testimonial-inner-img border border-primary border-3 me-4" style="width: 100px; height: 100px;">
-                                                    <img src="img/testimonial-img-3.jpg" class="img-fluid" style="object-fit: cover;" alt="">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div>
-                                                <h5 class="mb-2">John Abraham</h5>
-                                                <p class="mb-0">New York, USA</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="text-sm-center">
-                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores nemo facilis tempora esse explicabo sed! Dignissimos quia ullam pariatur blanditiis sed voluptatum. Totam aut quidem laudantium tempora. Minima, saepe earum!
-                                        </p>
-                                        <div class="d-flex justify-content-sm-center">
-                                            <i class="fas fa-star text-primary"></i>
-                                            <i class="fas fa-star text-primary"></i>
-                                            <i class="fas fa-star text-primary"></i>
-                                            <i class="fas fa-star text-primary"></i>
-                                            <i class="fas fa-star text-primary"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="fade-up">
+                    <a class="btn-primary" href="mailto:praveenkumarramu1969@gmail.com"><i class="fas fa-paper-plane"></i> Get In Touch</a>
                 </div>
             </div>
-        </div>
-        <!-- Testimonial End -->
+        </section>
 
-
-        <!-- Contact Start -->
-        <div class="container-fluid" id="pigraContact">
-            <div class="container">
-                <div class="row g-0">
-                    <div class="col-lg-3">
-                        <div class="contact-header h-100 bg-dark pt-6 pe-6 pb-6">
-                            <div class="text-start d-flex flex-column justify-content-center wow fadeInUp" data-wow-delay="0.1s">
-                                <p class="text-white sub-title">Contact Me</p>
-                                <h1 class="display-6 text-white mb-0">Let’s Start A New Project</h1>
-                            </div>
-                        </div>
+        <!-- ── ABOUT ── -->
+        <section class="section" id="about">
+            <div class="section-label">
+                <div class="tag">About Me</div>
+                <h2>Marketing professional based in Dubai, UAE</h2>
+            </div>
+            <div class="section-body">
+                <p style="font-size:1rem; line-height:1.9; color:#444; margin-bottom:40px;" class="fade-up">
+                    I bridge the gap between data and strategy — translating analytics insights into effective marketing campaigns and customer engagement initiatives. With experience spanning fintech, NGOs, and digital marketing, I bring a versatile and internationally-oriented perspective to every role.
+                </p>
+                <div class="about-grid fade-up">
+                    <div class="info-row">
+                        <div class="info-item"><strong>Location</strong><span>Dubai, UAE</span></div>
+                        <div class="info-item"><strong>Phone</strong><span>+91 8148 921 398</span></div>
+                        <div class="info-item"><strong>Email</strong><span>praveenkumarramu1969@gmail.com</span></div>
+                        <div class="info-item"><strong>Languages</strong><span>English (Fluent) · Tamil (Fluent)</span></div>
                     </div>
-                    <div class="col-lg-9">
-                       <div class="contact-content h-100 pt-6 ps-6 pb-6">
-                            <div class="bg-light p-4">
-                                <div class="row g-5">
-                                    <div class="col-xl-5 wow fadeInUp" data-wow-delay="0.1s">
-                                        <h4 class="mb-4">Receive messages instantly with our PHP and Ajax contact form - available in the <a href="https://htmlcodex.com/downloading/?item=3433">Pro Version</a> only.</h4>
-                                        <div class="d-flex mb-4">
-                                            <div class="btn-xl-square bg-primary text-white me-3">
-                                                <i class="fas fa-map-marker-alt"></i>
-                                            </div>
-                                            <div>
-                                                <h4>Address</h4>
-                                                <p class="mb-0">123 Street New York.USA</p>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex mb-4">
-                                            <div class="btn-xl-square bg-primary text-white me-3">
-                                                <i class="fas fa-envelope"></i>
-                                            </div>
-                                            <div>
-                                                <h4>Mail Us</h4>
-                                                <p class="mb-0">info@example.com</p>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex">
-                                            <div class="btn-xl-square bg-primary text-white me-3">
-                                                <i class="fa fa-phone-alt"></i>
-                                            </div>
-                                            <div>
-                                                <h4>Telephone</h4>
-                                                <p class="mb-0">(+012) 3456 7890</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-7 wow fadeInUp" data-wow-delay="0.3s">
-                                        <div>
-                                            <form>
-                                                <div class="row g-3">
-                                                    <div class="col-lg-12 col-xl-6">
-                                                        <div class="form-floating">
-                                                            <input type="text" class="form-control border-0" id="name" placeholder="Your Name">
-                                                            <label for="name">Your Name</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-12 col-xl-6">
-                                                        <div class="form-floating">
-                                                            <input type="email" class="form-control border-0" id="email" placeholder="Your Email">
-                                                            <label for="email">Your Email</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-12 col-xl-6">
-                                                        <div class="form-floating">
-                                                            <input type="phone" class="form-control border-0" id="phone" placeholder="Phone">
-                                                            <label for="phone">Your Phone</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-12 col-xl-6">
-                                                        <div class="form-floating">
-                                                            <input type="text" class="form-control border-0" id="project" placeholder="Project">
-                                                            <label for="project">Your Project</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-12">
-                                                        <div class="form-floating">
-                                                            <input type="text" class="form-control border-0" id="subject" placeholder="Subject">
-                                                            <label for="subject">Subject</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-12">
-                                                        <div class="form-floating">
-                                                            <textarea class="form-control border-0" placeholder="Leave a message here" id="message" style="height: 120px"></textarea>
-                                                            <label for="message">Message</label>
-                                                        </div>
-                
-                                                    </div>
-                                                    <div class="col-12">
-                                                        <button class="btn btn-primary w-100 py-3">Send Message</button>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 wow fadeInUp" data-wow-delay="0.5s">
-                                        <div class="rounded">
-                                            <iframe class="rounded w-100" 
-                                            style="height: 400px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387191.33750346623!2d-73.97968099999999!3d40.6974881!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1694259649153!5m2!1sen!2sbd" 
-                                            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                       </div>
+                    <div class="info-row">
+                        <div class="info-item"><strong>Degree</strong><span>MBA — Business Analytics (in progress)</span></div>
+                        <div class="info-item"><strong>University</strong><span>BITS Pilani, Dubai Campus</span></div>
+                        <div class="info-item"><strong>Certification</strong><span>KPMG Certified (B.Com Finance)</span></div>
+                        <div class="info-item"><strong>Availability</strong><span>Open to Opportunities</span></div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- Contact End -->
+        </section>
 
-
-        <!-- Footer Start -->
-        <div class="container-fluid footer bg-dark border-bottom-0">
-            <div class="container wow fadeIn" data-wow-delay="0.1s">
-                <div class="row g-0">
-                    <div class="col-12">
-                       <div class="footer-content h-100 pt-6 ps-6 pb-6">
-                            <div class="row g-4 align-items-center">
-                                <div class="col-12 text-center">
-                                    <div class="d-flex justify-content-center">
-                                        <a class="btn btn-light btn-md-square me-3" href=""><i class="fab fa-facebook-f"></i></a>
-                                        <a class="btn btn-light btn-md-square me-3" href=""><i class="fab fa-twitter"></i></a>
-                                        <a class="btn btn-light btn-md-square me-3" href=""><i class="fab fa-instagram"></i></a>
-                                        <a class="btn btn-light btn-md-square me-0" href=""><i class="fab fa-linkedin-in"></i></a>
-                                    </div>
-                                </div>
-                                <div class="col-12 text-center">
-                                    <span class="text-body"><a href="#" class="border-bottom text-white"><i class="fas fa-copyright text-body me-2"></i>Your Site Name</a>, All right reserved.</span>
-                                </div>
-                                <div class="col-12 text-center text-body">
-                                    <!--/*** The author’s attribution link must remain intact in the template. ***/-->
-                                    <!--/*** If you wish to remove this credit link, please purchase the Pro Version . ***/-->
-                                    Designed By <a class="border-bottom text-white" href="https://htmlcodex.com">HTML Codex</a>
-                                </div>
-                            </div>
-                       </div>        
+        <!-- ── EDUCATION ── -->
+        <section class="section" id="education">
+            <div class="section-label">
+                <div class="tag">Education</div>
+                <h2>Academic qualifications</h2>
+            </div>
+            <div class="section-body">
+                <div class="timeline">
+                    <div class="timeline-item fade-up">
+                        <div class="timeline-meta">
+                            <span class="timeline-org">BITS Pilani, Dubai Campus</span>
+                            <span class="timeline-date">Feb 2026 – Feb 2028</span>
+                        </div>
+                        <h3 class="timeline-title">MBA — Business Analytics</h3>
+                        <p class="timeline-desc">Strengthening strategic marketing capabilities with a focus on data-driven decision making, analytics, and business intelligence.</p>
+                    </div>
+                    <div class="timeline-item fade-up">
+                        <div class="timeline-meta">
+                            <span class="timeline-org">Lovely Professional University</span>
+                            <span class="timeline-date">Aug 2022 – Aug 2025</span>
+                        </div>
+                        <h3 class="timeline-title">B.Com (Hons.) — Finance & Accounting</h3>
+                        <p class="timeline-desc">KPMG Certified. Developed a strong foundation in financial principles, accounting, and business analytics.</p>
+                    </div>
+                    <div class="timeline-item fade-up">
+                        <div class="timeline-meta">
+                            <span class="timeline-org">PSG College of Technology</span>
+                            <span class="timeline-date">Jun 2013 – Jun 2017</span>
+                        </div>
+                        <h3 class="timeline-title">Diploma — Mechanical Engineering</h3>
+                        <p class="timeline-desc">Gained technical problem-solving skills and an analytical mindset that continues to inform cross-functional work.</p>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- Footer End -->
+        </section>
 
+        <!-- ── EXPERIENCE ── -->
+        <section class="section" id="experience">
+            <div class="section-label">
+                <div class="tag">Experience</div>
+                <h2>Professional work history</h2>
+            </div>
+            <div class="section-body">
+                <div class="timeline">
+                    <div class="timeline-item fade-up">
+                        <div class="timeline-meta">
+                            <span class="timeline-org">Colortek · Cairo, Egypt</span>
+                            <span class="timeline-date">Dec 2025 – Jan 2026</span>
+                        </div>
+                        <h3 class="timeline-title">Digital Marketing Intern</h3>
+                        <ul class="timeline-bullets">
+                            <li>Analyzed KPIs across social media platforms — engagement rate, reach, impressions, and CTR — to assess campaign effectiveness.</li>
+                            <li>Compiled comprehensive digital marketing performance reports, translating data insights into actionable strategy recommendations.</li>
+                            <li>Monitored social media performance trends to support data-informed decision-making and optimize future campaigns.</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-item fade-up">
+                        <div class="timeline-meta">
+                            <span class="timeline-org">AIESEC in India · Jalandhar</span>
+                            <span class="timeline-date">Feb 2024 – Jul 2024</span>
+                        </div>
+                        <h3 class="timeline-title">Team Leader — Outgoing Social Sector</h3>
+                        <ul class="timeline-bullets">
+                            <li>Spearheaded outreach and promotional campaigns for international exchange programs, driving engagement around SDG-focused initiatives.</li>
+                            <li>Organized and marketed workshops, seminars, and events, boosting participant turnout and communicating program value to diverse stakeholders.</li>
+                            <li>Developed stakeholder engagement strategies, strengthening brand presence and expanding the organization's outreach network.</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-item fade-up">
+                        <div class="timeline-meta">
+                            <span class="timeline-org">AIESEC in India · Jalandhar</span>
+                            <span class="timeline-date">Aug 2023 – Jan 2024</span>
+                        </div>
+                        <h3 class="timeline-title">Team Member — Outgoing Social Sector</h3>
+                        <ul class="timeline-bullets">
+                            <li>Assisted in planning and executing promotional events and SDG awareness campaigns, increasing audience engagement.</li>
+                            <li>Supported data collection and impact reporting to assess campaign effectiveness and guide future marketing strategies.</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-item fade-up">
+                        <div class="timeline-meta">
+                            <span class="timeline-org">Visionet Systems Inc. · Coimbatore</span>
+                            <span class="timeline-date">Sep 2020 – Mar 2022</span>
+                        </div>
+                        <h3 class="timeline-title">Senior Associate</h3>
+                        <ul class="timeline-bullets">
+                            <li>Utilized Salesforce CRM to track and analyze customer interactions, generating insights that informed targeted marketing strategies.</li>
+                            <li>Maintained high CRM data accuracy to support reliable customer segmentation and effective marketing outreach.</li>
+                            <li>Drove customer retention initiatives through proactive service resolution, enhancing customer lifetime value.</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-item fade-up">
+                        <div class="timeline-meta">
+                            <span class="timeline-org">Simpl (One Sigma Technologies) · Bengaluru</span>
+                            <span class="timeline-date">Dec 2021 – Jul 2022</span>
+                        </div>
+                        <h3 class="timeline-title">Support Intern</h3>
+                        <ul class="timeline-bullets">
+                            <li>Managed 60+ daily outbound calls and 150+ customer emails, maintaining resolution within defined SLA and TAT benchmarks.</li>
+                            <li>Identified and escalated potential fraud cases, contributing to risk mitigation in a fast-paced fintech environment.</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-item fade-up">
+                        <div class="timeline-meta">
+                            <span class="timeline-org">Startek (Aegis) · Bengaluru</span>
+                            <span class="timeline-date">Jun 2019 – Jul 2020</span>
+                        </div>
+                        <h3 class="timeline-title">Junior Process Executive</h3>
+                        <ul class="timeline-bullets">
+                            <li>Managed 150+ daily inbound calls, achieving a consistent CSAT score of 4+/5 and driving measurable improvements in retention.</li>
+                            <li>Maintained 100% audit pass rate with zero compliance violations throughout tenure.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <!-- Back to Top -->
-        <a href="#" class="btn btn-primary btn-lg-square back-to-top"><i class="fa fa-arrow-up"></i></a>   
+        <!-- ── SKILLS ── -->
+        <section class="section" id="skills">
+            <div class="section-label">
+                <div class="tag">Skills</div>
+                <h2>Tools & competencies</h2>
+            </div>
+            <div class="section-body">
+                <div class="skills-grid">
+                    <div class="skill-card fade-up">
+                        <div class="skill-card-icon"><i class="fas fa-chart-line"></i></div>
+                        <h4>Marketing Tools</h4>
+                        <div class="skill-tags">
+                            <span class="tag-pill">Salesforce CRM</span>
+                            <span class="tag-pill">Google Analytics</span>
+                            <span class="tag-pill">Meta Business Suite</span>
+                            <span class="tag-pill">Social Media Marketing</span>
+                            <span class="tag-pill">KPI Reporting</span>
+                            <span class="tag-pill">Campaign Analysis</span>
+                        </div>
+                    </div>
+                    <div class="skill-card fade-up">
+                        <div class="skill-card-icon"><i class="fas fa-database"></i></div>
+                        <h4>Data & Analytics</h4>
+                        <div class="skill-tags">
+                            <span class="tag-pill">Microsoft Excel</span>
+                            <span class="tag-pill">Power BI</span>
+                            <span class="tag-pill">Tableau</span>
+                            <span class="tag-pill">Data Analysis</span>
+                            <span class="tag-pill">Reporting</span>
+                            <span class="tag-pill">MS Office Suite</span>
+                        </div>
+                    </div>
+                    <div class="skill-card fade-up">
+                        <div class="skill-card-icon"><i class="fas fa-bullhorn"></i></div>
+                        <h4>Core Competencies</h4>
+                        <div class="skill-tags">
+                            <span class="tag-pill">Digital Marketing</span>
+                            <span class="tag-pill">Stakeholder Engagement</span>
+                            <span class="tag-pill">CRM Management</span>
+                            <span class="tag-pill">Brand Communication</span>
+                            <span class="tag-pill">Content Strategy</span>
+                            <span class="tag-pill">Market Research</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        
-        <!-- JavaScript Libraries -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="lib/wow/wow.min.js"></script>
-        <script src="lib/easing/easing.min.js"></script>
-        <script src="lib/waypoints/waypoints.min.js"></script>
-        <script src="lib/lightbox/js/lightbox.min.js"></script>
-        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-        
+        <!-- ── CONTACT ── -->
+        <section class="section" id="contact">
+            <div class="section-label">
+                <div class="tag">Contact Me</div>
+                <h2>Let's connect and collaborate</h2>
+            </div>
+            <div class="section-body">
+                <div class="contact-grid">
+                    <div class="fade-up">
+                        <div class="contact-info-card">
+                            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div>
+                                <h4>Location</h4>
+                                <p>Dubai, UAE</p>
+                            </div>
+                        </div>
+                        <div class="contact-info-card">
+                            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                            <div>
+                                <h4>Email</h4>
+                                <p>praveenkumarramu1969@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-info-card">
+                            <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>+91 8148 921 398</p>
+                            </div>
+                        </div>
+                        <div class="contact-info-card">
+                            <div class="contact-icon"><i class="fab fa-linkedin-in"></i></div>
+                            <div>
+                                <h4>LinkedIn</h4>
+                                <p>linkedin.com/in/praveen-kumar-ramu</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form fade-up">
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label>Your Name</label>
+                                <input type="text" placeholder="John Doe">
+                            </div>
+                            <div class="form-field">
+                                <label>Your Email</label>
+                                <input type="email" placeholder="john@example.com">
+                            </div>
+                        </div>
+                        <div class="form-field">
+                            <label>Subject</label>
+                            <input type="text" placeholder="Project / Opportunity">
+                        </div>
+                        <div class="form-field">
+                            <label>Message</label>
+                            <textarea rows="5" placeholder="Tell me about your project or opportunity..."></textarea>
+                        </div>
+                        <button class="btn-primary" style="width:100%; justify-content:center;">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <!-- Template Javascript -->
-        <script src="js/main.js"></script>
-    </body>
+        <!-- ── FOOTER ── -->
+        <footer class="footer">
+            <p>© 2026 Praveen Kumar Ramu · All Rights Reserved</p>
+            <div class="footer-social">
+                <a class="social-btn" href="https://linkedin.com/in/praveen-kumar-ramu" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a class="social-btn" href="mailto:praveenkumarramu1969@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
+        </footer>
 
+    </div>
+
+    <script>
+        // Scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+        // Active nav highlight
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.sidebar a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(s => {
+                if (window.scrollY >= s.offsetTop - 200) current = s.id;
+            });
+            navLinks.forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+            });
+        });
+    </script>
+
+</body>
 </html>
